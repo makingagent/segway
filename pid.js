@@ -19,7 +19,7 @@ class PID {
     }
 
     step(dt) {
-        this.integral = dt * (this.integral + this.cError);
+        this.integral = this.integral + this.cError * dt;
         let derivative = (this.cError - this.pError) / dt;
         this.output = this.p * this.cError + this.i * this.integral + this.d * derivative;
         this.pError = this.cError;
